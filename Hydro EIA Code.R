@@ -29,7 +29,7 @@ invisible(lapply(c("Rgraphviz", "bnlearn", "gRain", "visNetwork", "ggplot2",
 
 
 # Set Working Directory (change for your setup)
-setwd("/Users/Documents/Hydro EIA Code")
+setwd("/Users/amirgazar/Documents/GitHub/Hydro EIA Code")
 rm(list=ls())
 # Read the data-set
 hydro.data <- read.csv("hydro_var_aug23.csv")
@@ -519,6 +519,7 @@ graphviz.chart(model.expert.5y.emp.bic,  type = "barprob", grid = TRUE, bar.col 
 dev.off()
 
 # Run the Graph_Generator code to save the conditional depenency graphs automatically
+
 source("Graph_Generator.R")
 
 
