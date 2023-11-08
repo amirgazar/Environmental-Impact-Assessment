@@ -1,4 +1,3 @@
-
 # Does increased transborder transmission capacity stimulate Canadian hydroelectric development? 
 # Using causal inference to scope environmental impact assessment in sociotechnical systems
 # Amir Mortazavigazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
@@ -128,6 +127,7 @@ evaluate_fit_discrete <- function(actual, predicted) {
   return(metrics)
 }
 # 4. D-Separation
+
 arc_exists <- function(from, to, existing_arcs) {
   # The existence of the arc is checked and the result is returned.
   return(any(existing_arcs[existing_arcs[, "from"] == from, "to"] == to))
@@ -154,15 +154,28 @@ perform_dsep_tests <- function(dag, data) {
   }
   
   # A list for test results is initialized.
-  results <- list()
+  results_parents <- list()
+  results_nbr <- list()
+  results_mb <- list()
   
   # D-separation tests are performed for each non-adjacent pair.
   for (pair in non_adj_pairs) {
+    # Conditioning on parents of a node
+    conditioning_set <- setdiff(unique(c(bnlearn::parents(dag, pair[1]), bnlearn::parents(dag, pair[2]))), pair)  # Combined Markov blanket excluding x and y
+    test <- ci.test(pair[1], pair[2], conditioning_set, data = data)
+    results_parents[[paste0(pair[1], "_", pair[2])]] <- test$p.value
+    # Conditioning on immediate neighbors of a node
+    conditioning_set <- setdiff(unique(c(nbr(dag, pair[1]), nbr(dag, pair[2]))), pair)  # Combined Markov blanket excluding x and y
+    test <- ci.test(pair[1], pair[2], conditioning_set, data = data)
+    results_nbr[[paste0(pair[1], "_", pair[2])]] <- test$p.value
+    # Conditioning on Markov Blanket of a node
     conditioning_set <- setdiff(unique(c(mb(dag, pair[1]), mb(dag, pair[2]))), pair)  # Combined Markov blanket excluding x and y
     test <- ci.test(pair[1], pair[2], conditioning_set, data = data)
-    results[[paste0(pair[1], "_", pair[2])]] <- test$p.value
+    results_mb[[paste0(pair[1], "_", pair[2])]] <- test$p.value
   }
-  return(results)
+  
+  return(list(parents = results_parents, neighbors = results_nbr, markov_blanket = results_mb))
+  
 }
 interpret_dsep_pvalues <- function(pvalues, threshold_low = 0.05, threshold_high = 0.95) {
   # P-values are categorized based on predefined thresholds.
@@ -177,6 +190,43 @@ interpret_dsep_pvalues <- function(pvalues, threshold_low = 0.05, threshold_high
   })
   return(categories)
 }
+interpret_print <- function(node1, node2, interpretations_list) {
+  # Constructing the key string from the node names
+  key <- paste0(node1, "_", node2)
+  
+  interpretations <- lapply(interpretations_list, function(interpretation) {
+    interpretation[key]
+  })
+  
+  names(interpretations) <- c("parents", "neighbors", "markov_blanket")
+  
+  # Printing the results
+  cat("From", node1, "To", node2, ":\n")
+  for (name in names(interpretations)) {
+    cat("Results for", name, ":\n")
+    cat(interpretations[[name]], "\n\n")  # Directly prints the value without the key
+  }
+}
+dsep.dag <- function(dag, data, node_pairs) {
+  # Performing D-separation tests
+  dsep_results <- perform_dsep_tests(dag, data)
+  
+  # Translating the results
+  interpretations_list <- lapply(dsep_results, interpret_dsep_pvalues)
+  
+  # Initializing a list to hold the interpreted results for each node pair
+  interpreted_results <- list()
+  
+  for (node_pair in node_pairs) {
+    key <- paste0(node_pair[1], "_", node_pair[2])
+    interpret_print(node_pair[1], node_pair[2], interpretations_list)
+    interpreted_results[[key]] <- lapply(interpretations_list, function(interpretation) interpretation[key])
+  }
+  
+  # Returning the list of interpreted results
+  return(interpreted_results)
+}
+
 
 ## Variable Preparation
 {
@@ -363,32 +413,22 @@ result_5y_lag <- transform_and_test(df.5y.with.lags.no.NA, non_gaussian_5y_lag)
 df.5y.with.lags.no.NA <- result_5y_lag$df
 still_non_gaussian_5y_lag <- result_5y_lag$still_non_gaussian
 
-## Discretising remaining variables that have significant SW test results or are zero-inflated 
+# We manually revert this var from box-cox transform to maintain consistancy with Price_5y var that was transfored by box-cox
+bc <- boxcox(df.5y.with.lags.no.NA$PRICE_5y_lag_5y ~ 1, plotit = FALSE)
+lambda <- bc$x[which.max(bc$y)]
+df.5y.with.lags.no.NA$PRICE_5y_lag_5y <- (df.5y.with.lags.no.NA$PRICE_5y_lag_5y^lambda - 1) / lambda
 
+## Discretising remaining variables that have significant SW test results or are zero-inflated 
 df.5y.with.lags.no.NA$INTERTIE_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_5y , breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_5y,na.rm=T ), 100, max(df.5y.with.lags.no.NA$INTERTIE_5y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
 df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y , breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y,na.rm=T ), 100, max(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
 df.5y.with.lags.no.NA$DEMAND_QC_5y <- cut(df.5y.with.lags.no.NA$DEMAND_QC_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_QC_5y,na.rm=T), 120, 160, max(df.5y.with.lags.no.NA$DEMAND_QC_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
 df.5y.with.lags.no.NA$DEMAND_US_5y <- cut(df.5y.with.lags.no.NA$DEMAND_US_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_US_5y,na.rm=T), 230, 260, max(df.5y.with.lags.no.NA$DEMAND_US_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$DEMAND_QC_5y_lag_5y <- cut(df.5y.with.lags.no.NA$DEMAND_QC_5y_lag_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_QC_5y_lag_5y,na.rm=T), 120, 160, max(df.5y.with.lags.no.NA$DEMAND_QC_5y_lag_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$DEMAND_US_5y_lag_5y <- cut(df.5y.with.lags.no.NA$DEMAND_US_5y_lag_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_US_5y_lag_5y,na.rm=T), 230, 260, max(df.5y.with.lags.no.NA$DEMAND_US_5y_lag_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
 df.5y.with.lags.no.NA$INVESTMENT_5y <- cut(df.5y.with.lags.no.NA$INVESTMENT_5y, breaks = c(min(df.5y.with.lags.no.NA$INVESTMENT_5y,na.rm=T), 2500, 3500, max(df.5y.with.lags.no.NA$INVESTMENT_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$INVESTMENT_total_5y <- cut(df.5y.with.lags.no.NA$INVESTMENT_total_5y, breaks = c(min(df.5y.with.lags.no.NA$INVESTMENT_total_5y,na.rm=T), 12000, 18000, max(df.5y.with.lags.no.NA$INVESTMENT_total_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$INTERTIE_new_avg_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y, breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y,na.rm=T), 100, max(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y,na.rm=T)), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$INTERTIE_new_avg_5y_lag_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y_lag_5y, breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y_lag_5y,na.rm=T),100, max(df.5y.with.lags.no.NA$INTERTIE_new_avg_5y_lag_5y,na.rm=T)), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$EXPORTS_new_avg_5y <- cut(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y, breaks = c(min(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y,na.rm=T), 0, max(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y,na.rm=T)), labels = c("negative", "positive"), include.lowest = TRUE, ordered_result = TRUE)
 df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y <- cut(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y, breaks = c(min(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y,na.rm=T), 0, max(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y,na.rm=T)), labels = c("negative", "positive"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$PRICE_new_avg_5y <- cut(df.5y.with.lags.no.NA$PRICE_new_avg_5y, breaks = c(min(df.5y.with.lags.no.NA$PRICE_new_avg_5y,na.rm=T), 0, max(df.5y.with.lags.no.NA$PRICE_new_avg_5y,na.rm=T)), labels = c("negative", "positive"), include.lowest = TRUE, ordered_result = TRUE)
 
-# We manullay revert this var from box-cox transform due to its histogram 
+# We manually revert this var from box-cox transform due to its histogram 
 df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y = hydro.data$INSTALLED_5y_lag_5y[11:nrow(hydro.data)]
 df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y <- cut(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y , breaks = c(min(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y,na.rm=T ), 2000, 4000, max(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y,na.rm=T )), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-
-# Drop the variables
-var.drop = c("INSTALLED_new_avg_5y", "INTERTIE_new_avg_5y","INSTALLED_new_avg_5y_lag_5y", "INTERTIE_new_avg_5y_lag_5y", "INSTALLED_lag_5y", "INTERTIE_lag_5y")
-# Subset the dataset             
-df.5y.with.lags.no.NA = 
-  df.5y.with.lags.no.NA[,setdiff(1:ncol(df.5y.with.lags.no.NA),
-                                 match(var.drop,colnames(df.5y.with.lags.no.NA)))]
 
 # Selecting columns of interest
 selected.columns <- c('INSTALLED_5y_lag_5y', 'INSTALLED_5y', 'DEMAND_QC_new_avg_5y_lag_5y', 'INVESTMENT_5y', 'PRICE_5y_lag_5y',
@@ -419,7 +459,7 @@ allow.list.expert =
     "INTERTIE_5y_lag_5y","INSTALLED_5y", 
     
     # Installed --> Intertie
-    "INSTALLED_5y","INTERTIE_5y", 
+  #  "INSTALLED_5y","INTERTIE_5y", 
     "INSTALLED_5y_lag_5y", "INTERTIE_5y",
     
     # Investment --> Intertie
@@ -428,11 +468,14 @@ allow.list.expert =
     # US demand lag --> Intertie
     "DEMAND_US_new_avg_5y_lag_5y","INTERTIE_5y",
     
-    # Price --> Intertie
-    "PRICE_5y","INTERTIE_5y", 
+    # Price lag --> Intertie
+    "PRICE_5y_lag_5y","INTERTIE_5y",  
     
     # QC demand lag --> Investment
     "DEMAND_QC_new_avg_5y_lag_5y","INVESTMENT_5y",
+   
+    # QC demand --> Price
+    "DEMAND_QC_5y","PRICE_5y", 
     
     # Exports lag --> Investment
     "EXPORTS_new_avg_5y_lag_5y","INVESTMENT_5y",
@@ -440,14 +483,8 @@ allow.list.expert =
     # Intertie --> Exports
     "INTERTIE_5y","EXPORTS_5y", 
     
-    # Installed --> Exports
-    "INSTALLED_5y","EXPORTS_5y", 
-    
     # Price --> Exports
     "PRICE_5y","EXPORTS_5y", 
-    
-    # QC demand --> Price
-    "DEMAND_QC_5y","PRICE_5y", 
     
     # US demand --> Price
     "DEMAND_US_5y","PRICE_5y"),
@@ -482,7 +519,7 @@ black.list.expert = black.list.expert[2:nrow(black.list.expert),]
 
 ## Visualizing the expert DAG
 # A DAG is constructed using expert knowledge.
-dag.expert.5y <- model2network("[INSTALLED_5y_lag_5y][DEMAND_QC_new_avg_5y_lag_5y][PRICE_5y_lag_5y][INTERTIE_5y_lag_5y][DEMAND_US_new_avg_5y_lag_5y][EXPORTS_new_avg_5y_lag_5y][DEMAND_QC_5y][DEMAND_US_5y][INSTALLED_5y|DEMAND_QC_new_avg_5y_lag_5y:INVESTMENT_5y:PRICE_5y_lag_5y:INTERTIE_5y_lag_5y][INTERTIE_5y|INSTALLED_5y_lag_5y:INVESTMENT_5y:DEMAND_US_new_avg_5y_lag_5y:PRICE_5y][INVESTMENT_5y|DEMAND_QC_new_avg_5y_lag_5y:EXPORTS_new_avg_5y_lag_5y][EXPORTS_5y|INTERTIE_5y:INSTALLED_5y:PRICE_5y][PRICE_5y|DEMAND_QC_5y:DEMAND_US_5y]")
+dag.expert.5y <- model2network("[INSTALLED_5y_lag_5y][DEMAND_QC_new_avg_5y_lag_5y][PRICE_5y_lag_5y][INTERTIE_5y_lag_5y][DEMAND_US_new_avg_5y_lag_5y][EXPORTS_new_avg_5y_lag_5y][DEMAND_QC_5y][DEMAND_US_5y][INSTALLED_5y|DEMAND_QC_new_avg_5y_lag_5y:INVESTMENT_5y:PRICE_5y_lag_5y:INTERTIE_5y_lag_5y][INTERTIE_5y|INSTALLED_5y_lag_5y:INVESTMENT_5y:DEMAND_US_new_avg_5y_lag_5y:PRICE_5y_lag_5y][INVESTMENT_5y|DEMAND_QC_new_avg_5y_lag_5y:EXPORTS_new_avg_5y_lag_5y][EXPORTS_5y|INTERTIE_5y:INSTALLED_5y:PRICE_5y][PRICE_5y|DEMAND_QC_5y:DEMAND_US_5y]")
 
 # The constructed DAG is visualized with a specified height.
 plot.network(dag.expert.5y, ht = "600px")
@@ -522,8 +559,72 @@ dev.off()
 
 source("Graph_Generator.R")
 
+## rmse, MSE, MAE and Rsquared for each node
+# Loglik model
+df.expert.5y <- df.5y.with.lags.no.NA[, selected.columns]
 
+results_loglik <- list()
+discrete_vars <- c("INTERTIE_5y", "INVESTMENT_5y")
+continuous_vars <- setdiff(colnames(df.expert.5y), c(discrete_vars, grep("_pred$", colnames(df.expert.5y), value = TRUE)))
 
+for (var in colnames(df.expert.5y)) {
+  if (!grepl("_pred$", var)) {
+    pred_column <- paste(var, "pred", sep = "_")
+    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp, node = var, data = df.expert.5y, method = "bayes-lw")
+    actual_values <- df.expert.5y[[var]]
+    predicted_values <- df.expert.5y[[pred_column]]
+    
+    if (var %in% continuous_vars) {
+      results_loglik[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
+    } else if (var %in% discrete_vars) {
+      results_loglik[[var]] <- evaluate_fit_discrete(actual_values, predicted_values)
+    }
+  }
+}
 
+# AIC model
+results_AIC <- list()
 
+for (var in colnames(df.expert.5y)) {
+  if (!grepl("_pred$", var)) {
+    pred_column <- paste(var, "pred", sep = "_")
+    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp.aic, node = var, data = df.expert.5y, method = "bayes-lw")
+    actual_values <- df.expert.5y[[var]]
+    predicted_values <- df.expert.5y[[pred_column]]
+    
+    if (var %in% continuous_vars) {
+      results_AIC[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
+    } else if (var %in% discrete_vars) {
+      results_AIC[[var]] <- evaluate_fit_discrete(actual_values, predicted_values)
+    }
+  }
+}
+
+# BIC model
+results_BIC <- list()
+
+for (var in colnames(df.expert.5y)) {
+  if (!grepl("_pred$", var)) {
+    pred_column <- paste(var, "pred", sep = "_")
+    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp.bic, node = var, data = df.expert.5y, method = "bayes-lw")
+    actual_values <- df.expert.5y[[var]]
+    predicted_values <- df.expert.5y[[pred_column]]
+    
+    if (var %in% continuous_vars) {
+      results_BIC[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
+    } else if (var %in% discrete_vars) {
+      results_BIC[[var]] <- evaluate_fit_discrete(actual_values, predicted_values)
+    }
+  }
+}
+# Using the dsep.dag function to calculate conditional dependency for each pair 
+
+# Defining the node_peirs list to identify nodes of interest where we want to perfom d-separation. Note that this list contains node in a "from", "to" format.
+different_edges <- compare(dag.expert.5y.emp, dag.expert.5y, arcs = TRUE)
+node_pairs <- different_edges$fp
+print(node_pairs)
+node_pairs <- lapply(seq_len(nrow(node_pairs)), function(i) as.character(node_pairs[i, ]))
+
+# Using the dsep.dag function to calculate conditional dependancy for each pair 
+dsep_log <- dsep.dag(dag.expert.5y.emp, df.expert.5y, node_pairs)
 
