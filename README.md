@@ -13,7 +13,7 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 <li><a href="#repo-contents">Repo Contents</a></li>
 <li><a href="#system-requirements">System Requirements</a></li>
 <li><a href="#installation-guide">Installation Guide</a></li>
-<li><a href="#user-content-demo">New Functions</a></li>
+<li><a href="#new-functions">New Functions</a></li>
 <li><a href="#results">Results</a></li>
 <li><a href="#Copyrights">Copyrights</a></li>
 </ul>
