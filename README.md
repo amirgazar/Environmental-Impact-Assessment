@@ -156,52 +156,19 @@ vignette(&quot;lol&quot;, package=&quot;lolR&quot;)  # view one of the basic vig
 
 <h2 id="DAG Visualizer">DAG Visualizer</h2>
 <p>Visualizes and returns DAGs created by the <code>bnlearn</code> package.</p>
-<pre><code class="language-R">
-plot.network &lt;- function(structure, ht = "400px", title){
-  ...
-  return(visNetwork(nodes, edges, height = ht, width = "100%"))
-}
-</code></pre>
+
 
 
 <h2 id="Box-Cox Transformer">Box-Cox Transformer</h2>
 <p>Evaluates the data-set and checks for normality (using Shapiro-Wilk test), transforms the non-Gaussian variables using Box-Cox transformation. Re-evaluates the transformed variables with the Shapiro-Wilk test and checks for normality. Returns the results.</p>
-<pre><code class="language-R">
-transform_and_test &lt;- function(df, non_gaussian_vars){
-  ...
-  list(df = df_new, still_non_gaussian = still_non_gaussian, transformed = transformed_vars)
-}
-</code></pre>
+
 
 <h2 id="Fitness Test">Goodness of Fit Test</h2>
 <p>Evaluates each variable's goodness of fit for the DAGs produced by the <code>bnlearn</code> package.</p>
-<pre><code class="language-R" title="Function to compute the R^2 (r-squared) metric for continuous variables, representing the proportion of variance in the dependent variable that's predictable from the independent variable.">
-evaluate_fit_continuous &lt;- function(actual, predicted) {
-  ...
-  return(metrics)
-}
-</code></pre>
-<pre><code class="language-R" title="Function to compute the accuracy metric for discrete variables, defined as the ratio of correctly predicted values to the total number of values.">
-evaluate_fit_discrete &lt;- function(actual, predicted) {
-  ...
-  return(metrics)
-}
-</code></pre>
 
 
 
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="require(lolR)
-vignette('extend_embedding')
-vignette('extend_classification')" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
-<h1 tabindex="-1" id="user-content-results" dir="auto"><a class="heading-link" href="#results">Results<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
+<h1 tabindex="-1" id="user-content-results" dir="auto"><a class="heading-link" href="#results">Results</h1>
 <p dir="auto">In this <a href="http://docs.neurodata.io/lol/lol-paper/figures/real_data.html" rel="nofollow">benchmark comparison</a>, we show that LOL does better than all linear embedding techniques in supervised HDLSS settings when dimensionality is high (d &gt; 100, ntrain &lt;= d) on 20 benchmark problems from the <a href="https://archive.ics.uci.edu/ml/index.php" rel="nofollow">UCI</a> and <a href="https://github.com/EpistasisLab/penn-ml-benchmarks">PMLB</a> datasets. LOL provides a good tradeoff between maintaining the class conditional difference (good misclassification rate) in a small number of dimensions (low number of embedding dimensions).</p>
 <h1 tabindex="-1" id="Copyrights" dir="auto"><a class="heading-link" href="#Copyrights">Copyrights<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 
