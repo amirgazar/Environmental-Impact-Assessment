@@ -1,4 +1,4 @@
-# Hydro-EIA
+# Transborder electrical interties do not stimulate development of Canadian hydroelectric resources
  Does increased transborder transmission capacity stimulate Canadian hydroelectric development? Using causal inference to scope environmental impact assessment in sociotechnical systems
 
 <a href="https://zenodo.org/badge/latestdoi/693841630"><img src="https://zenodo.org/badge/693841630.svg" alt="DOI"></a>
