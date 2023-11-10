@@ -93,16 +93,14 @@ tidyverse 2.0.0
 <h2 id="DAG Visualizer">DAG Visualizer</h2>
 <p>The <code>plot.network</code> function visualizes and returns DAGs returned by the <code>bnlearn</code> package.</p>
 
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>
-  plot.network(structure, ht = "400px", title)
-
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>plot.network(structure, ht = "400px", title)
 </code></pre>
 
 <h4>Parameters</h4>
 <p>The <code>plot.network</code> function accepts the following parameters:</p>
 <ul>
   <li><code>structure</code>: an object of class <code>bn</code></li>
-  <li><code>ht</code>: a numeric value. If none is specified, the default value will be 400px</li>
+  <li><code>ht</code>: a string specifying the height of the plot. If none is specified, the default value will be 400px</li>
   <li><code>title</code>: a character string, the title of the plot. If none is specified, the title will be blank.</li>
 
 </ul>
