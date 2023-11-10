@@ -129,6 +129,7 @@ tidyverse 2.0.0
   <li><code>data</code>: a data frame containing continuous variables in the model</li>
   <li><code>pred</code>: a data frame containing continuous variables predictions using the model</li>
 </ul>
+<hr style="border-top: 1px solid #ddd;">
 
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>evaluate_fit_discrete(data, pred)</span>
 </code></pre>
