@@ -183,6 +183,26 @@ vignette('nearestCentroid')" tabindex="0" role="button">
   <!-- The following item is commented out, as in the original LaTeX source -->
   <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
 </ul>
+
+<h2 id="DAG Visualizer">DAG Visualizer</h2>
+<p>Visualizes and returns DAGs created by the <code>bnlearn</code> package.</p>
+<pre><code class="language-R">
+plot.network &lt;- function(structure, ht = "400px", title){
+  ...
+  return(visNetwork(nodes, edges, height = ht, width = "100%"))
+}
+</code></pre>
+
+
+<h2 id="Box-Cox Transformer">Box-Cox Transformer</h2>
+<p>Evaluates the data-set and checks for normality (using Shapiro-Wilk test), transforms the non-Gaussian variables using Box-Cox transformation. Re-evaluates the transformed variables with the Shapiro-Wilk test and checks for normality. Returns the results.</p>
+<pre><code class="language-R">
+transform_and_test &lt;- function(df, non_gaussian_vars){
+  ...
+  list(df = df_new, still_non_gaussian = still_non_gaussian, transformed = transformed_vars)
+}
+</code></pre>
+
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="require(lolR)
 vignette('extend_embedding')
 vignette('extend_classification')" tabindex="0" role="button">
