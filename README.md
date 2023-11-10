@@ -169,7 +169,9 @@ vignette('nearestCentroid')" tabindex="0" role="button">
     </clipboard-copy>
   </div></div>
 <h2 tabindex="-1" id="dsep" dir="auto"><a class="heading-link" href="#dsep">D-separation function<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
-<p dir="auto">We have. \begin{center}
+<p dir="auto">We have. </p>
+<p dir="auto">To extend the lolR package, check out the vignettes:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>\begin{center}
 \texttt{dsep.dag(x, \color{blue}{data}\color{black}{,} \color{red}{z}\color{black}{)}}
 \end{center}
 
@@ -180,11 +182,7 @@ The \texttt{dsep.dag} function accepts the following parameters:
     \item \texttt{data}: a data frame containing the variables in the model
     \item \texttt{z}: a list, where each element is a character vector representing a pair of node labels
     %\item \textbf{set}: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets is used
-\end{itemize}</p>
-<p dir="auto">To extend the lolR package, check out the vignettes:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>require(lolR)
-vignette('extend_embedding')
-vignette('extend_classification')
+\end{itemize}
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="require(lolR)
 vignette('extend_embedding')
