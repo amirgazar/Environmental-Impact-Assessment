@@ -91,18 +91,52 @@ tidyverse 2.0.0
 </ul>
 
 <h2 id="DAG Visualizer">DAG Visualizer</h2>
-<p>Visualizes and returns DAGs created by the <code>bnlearn</code> package.</p>
+<p>The <code>plot.network</code> function visualizes and returns DAGs returned by the <code>bnlearn</code> package.</p>
 
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>
+  plot.network(structure, ht = "400px", title)
 
+</code></pre>
+
+<h4>Parameters</h4>
+<p>The <code>plot.network</code> function accepts the following parameters:</p>
+<ul>
+  <li><code>structure</code>: an object of class <code>bn</code></li>
+  <li><code>ht</code>: a numeric value. If none is specified, the default value will be 400px</li>
+  <li><code>title</code>: a character string, the title of the plot. If none is specified, the title will be blank.</li>
+
+</ul>
 
 <h2 id="Box-Cox Transformer">Box-Cox Transformer</h2>
 <p>Evaluates the data-set and checks for normality (using Shapiro-Wilk test), transforms the non-Gaussian variables using Box-Cox transformation. Re-evaluates the transformed variables with the Shapiro-Wilk test and checks for normality. Returns the results.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>dsep.dag(x, data, z)</span>
+</code></pre>
 
+<h4>Parameters</h4>
+<p>The <code>dsep.dag</code> function accepts the following parameters:</p>
+<ul>
+  <li><code>x</code>: an object of class <code>bn</code></li>
+  <li><code>data</code>: a data frame containing the variables in the model</li>
+  <li><code>z</code>: a list, where each element is a character vector representing a pair of node labels</li>
+  <!-- The following item is commented out, as in the original LaTeX source -->
+  <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
+</ul>
 
 <h2 id="Fitness Test">Goodness of Fit Test</h2>
 <p>Evaluates each variable's goodness of fit for the DAGs produced by the <code>bnlearn</code> package.</p>
 
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>dsep.dag(x, data, z)</span>
+</code></pre>
 
+<h4>Parameters</h4>
+<p>The <code>dsep.dag</code> function accepts the following parameters:</p>
+<ul>
+  <li><code>x</code>: an object of class <code>bn</code></li>
+  <li><code>data</code>: a data frame containing the variables in the model</li>
+  <li><code>z</code>: a list, where each element is a character vector representing a pair of node labels</li>
+  <!-- The following item is commented out, as in the original LaTeX source -->
+  <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
+</ul>
 
 <h1 tabindex="-1" id="user-content-results" dir="auto">Results</h1>
 
