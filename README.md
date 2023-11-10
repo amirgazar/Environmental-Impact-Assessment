@@ -19,9 +19,6 @@
 <h1 tabindex="-1" id="user-content-overview" dir="auto">Overview<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <p dir="auto">Using causal inference to scope environmental impact assessment in sociotechnical systems
 
-
-   <br> <img width="855" alt="image" src="https://github.com/amirgazar/Hydro_EIA/assets/35587707/2785b459-9d23-42ac-a26f-ec628b129117">
-   <br> From Hydro-Quebec 2022 annual report.
 </p>
 <h1 tabindex="-1" id="user-content-repo-contents" dir="auto">Repo Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <ul dir="auto">
@@ -68,15 +65,20 @@
 </svg>
     </clipboard-copy>
   </div></div>
-<p dir="auto">which will install in about 30 seconds on a machine with the recommended specs.</p>
-<p dir="auto">The <code>lolR</code> package functions with all packages in their latest versions as they appear on <code>CRAN</code> on December 13, 2017. Users can check <a href="https://mran.microsoft.com/timemachine/" rel="nofollow">CRAN snapshot</a> for details. The versions of software are, specifically:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>abind_1.4-5
-latex2exp_0.4.0
-ggplot2_2.2.1
-irlba_2.3.1
-Matrix_1.2-3
-MASS_7.3-47
-randomForest_4.6-12
+<p dir="auto">which will install in about a few minutes on a machine with the similar specs.</p>
+<p dir="auto">All packages in their latest versions as they appear on <code>CRAN</code> on November 10, 20123. The versions of packages are:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>Rgraphviz 2.44.0
+bnlearn 4.8.3
+gRain 1.3.13
+visNetwork 2.1.2
+ggplot2 3.4.2
+zoo 1.8.12
+scales 1.2.1
+gridExtra 2.3
+dplyr 1.1.2
+MASS 7.3.60
+svglite 2.1.1
+tidyverse 2.0.0
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="abind_1.4-5
 latex2exp_0.4.0
