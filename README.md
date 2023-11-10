@@ -101,7 +101,7 @@ tidyverse 2.0.0
 <ul>
   <li><code>structure</code>: an object of class <code>bn</code></li>
   <li><code>ht</code>: a string specifying the height of the plot. If none is specified, the default value will be 400px</li>
-  <li><code>title</code>: a character string, the title of the plot. If none is specified, the title will be blank.</li>
+  <li><code>title</code>: a character string, the title of the plot. If none is specified, the title will be blank</li>
 
 </ul>
 
@@ -118,19 +118,26 @@ tidyverse 2.0.0
 </ul>
 
 <h2 id="Fitness Test">Goodness of Fit Test</h2>
-<p>Evaluates each variable's goodness of fit for the DAGs produced by the <code>bnlearn</code> package.</p>
+<p>The <code>evaluate_fit_continuous</code> and <code>evaluate_fit_discrete</code> functions evaluate each variable's goodness of fit for the DAGs produced by the <code>bnlearn</code> package. The <code>evaluate_fit_continuous</code> evaluate continious variables and the <code>evaluate_fit_discrete</code> evaluates  discrete variables.</p>
 
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>dsep.dag(x, data, z)</span>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>evaluate_fit_continuous(data, pred)
+</span></code></pre>
+
+<h4>Parameters</h4>
+<p>The <code>evaluate_fit_continuous</code> function accepts the following parameters:</p>
+<ul>
+  <li><code>data</code>: a data frame containing continuous variables in the model</li>
+  <li><code>pred</code>: a data frame containing continuous variables predictions using the model</li>
+</ul>
+
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>evaluate_fit_discrete(data, pred)</span>
 </code></pre>
 
 <h4>Parameters</h4>
-<p>The <code>dsep.dag</code> function accepts the following parameters:</p>
+<p>The <code>evaluate_fit_discrete</code> function accepts the following parameters:</p>
 <ul>
-  <li><code>x</code>: an object of class <code>bn</code></li>
-  <li><code>data</code>: a data frame containing the variables in the model</li>
-  <li><code>z</code>: a list, where each element is a character vector representing a pair of node labels</li>
-  <!-- The following item is commented out, as in the original LaTeX source -->
-  <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
+  <li><code>data</code>: a data frame containing discrete variables in the model</li>
+  <li><code>pred</code>: a data frame containing discrete variables predictions using the model</li>
 </ul>
 
 <h1 tabindex="-1" id="user-content-results" dir="auto">Results</h1>
