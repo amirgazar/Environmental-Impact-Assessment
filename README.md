@@ -1,5 +1,4 @@
 # Transborder electrical interties do not stimulate development of Canadian hydroelectric resources
-Using causal inference to scope environmental impact assessment in sociotechnical systems
 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
@@ -18,7 +17,8 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 <li><a href="#Copyrights">Copyrights</a></li>
 </ul>
 <h1 tabindex="-1" id="user-content-overview" dir="auto">Overview<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
-<p dir="auto">FILL THIS UP.
+<p dir="auto">Using causal inference to scope environmental impact assessment in sociotechnical systems
+
 
    <br> <img width="855" alt="image" src="https://github.com/amirgazar/Hydro_EIA/assets/35587707/2785b459-9d23-42ac-a26f-ec628b129117">
    <br> From Hydro-Quebec 2022 annual report.
@@ -36,8 +36,8 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 <h2 tabindex="-1" id="user-content-software-requirements" dir="auto">Software Requirements<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
 
 <p dir="auto">This code is tested on <em>macOS</em> operating systems. The Comprehensive R Archive Network (CRAN) package which is the underlying softawre for this code, is compatible with Windows, Mac, and Linux operating systems.</p>
-<p dir="auto">Before setting up the <code>lolR</code> package, users should have <code>R</code> version 3.4.0 or higher, and several packages set up from CRAN.</p>
-<h4 tabindex="-1" id="user-content-installing-r-version-342-on-ubuntu-1604" dir="auto">Installing R version 3.4.2 on Ubuntu 16.04<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h4>
+<p dir="auto">Before setting up the <code>R</code> code, users should have <code>R</code> version 3.4.0 or higher, and several packages set up from CRAN.</p>
+
 <p dir="auto">the latest version of R can be installed by adding the latest repository to <code>apt</code>:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
