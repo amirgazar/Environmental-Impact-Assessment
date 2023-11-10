@@ -169,12 +169,12 @@ vignette('nearestCentroid')" tabindex="0" role="button">
     </clipboard-copy>
   </div></div>
 <h2 tabindex="-1" id="dsep" dir="auto"><a class="heading-link" href="#dsep">D-separation function<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
-<p dir="auto">We have created the <code>dsep.dag</code> function that can evaluate d-separation for any given node pair.  This function uses the optimized DAG results to identify the following for each node pair and then calculates conditional independence: 1. Parents; 2. Neighbors (i.e., parents and children for each node); and 3. Markov-Blanket (i.e., parents, children, and parents of children for each node). Furthermore, this function uses data to evaluate d-separation in addition to the results of DAG discovery. This combines the functionalities of the \texttt{ci.test} and <code>dsep</code> functions available in the <code>bnlearn</code> package. Where <code>ci.test</code>  exclusively utilizes data, while <code>dsep.dag</code> solely employs DAGs.</p>
+<p dir="auto">We have created the <code>dsep.dag</code> function that can evaluate d-separation for any given node pair.  This function uses the optimized DAG results to identify the following for each node pair and then calculates conditional independence: 1. Parents; 2. Neighbors (i.e., parents and children for each node); and 3. Markov-Blanket (i.e., parents, children, and parents of children for each node). Furthermore, this function uses data to evaluate d-separation in addition to the results of DAG discovery. This combines the functionalities of the <code>ci.test</code> and <code>dsep</code> functions available in the <code>bnlearn</code> package. Where <code>ci.test</code> exclusively utilizes data, while <code>dsep.dag</code> solely employs DAGs.</p>
 
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>
-    <div style="text-align: center;">
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate">
   <code>dsep.dag(x, <span style="color: blue;">data</span><span>,</span> <span style="color: red;">z</span><span>)</span></code>
-</div></code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
+</div>
+    <div class="zeroclipboard-container position-absolute right-0 top-0">
 
 <h4>Parameters</h4>
 <p>The <code>dsep.dag</code> function accepts the following parameters:</p>
