@@ -77,7 +77,9 @@ tidyverse 2.0.0
 
 <h2 id="D-separation">D-separation function</h2>
 <p dir="auto">We have created the <code>dsep.dag</code> function that can evaluate d-separation for any given node pair.  This function uses the optimized DAG results to identify the following for each node pair and then calculates conditional independence: 1. Parents; 2. Neighbors (i.e., parents and children for each node); and 3. Markov-Blanket (i.e., parents, children, and parents of children for each node). Furthermore, this function uses data to evaluate d-separation in addition to the results of DAG discovery. This combines the functionalities of the <code>ci.test</code> and <code>dsep</code> functions available in the <code>bnlearn</code> package. Where <code>ci.test</code> exclusively utilizes data, while <code>dsep.dag</code> solely employs DAGs.</p>
-
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>
+  dsep.dag(x, <span style="color: blue;">data</span><span>,</span> <span style="color: red;">z</span><span>)</span>
+</code></pre>
 <div style="text-align: center;">
   <code>dsep.dag(x, <span style="color: blue;">data</span><span>,</span> <span style="color: red;">z</span><span>)</span></code>
 </div>
