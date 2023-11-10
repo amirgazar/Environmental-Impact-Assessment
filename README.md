@@ -12,10 +12,9 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 <li><a href="#repo-contents">Repo Contents</a></li>
 <li><a href="#system-requirements">System Requirements</a></li>
 <li><a href="#installation-guide">Installation Guide</a></li>
-<li><a href="#demo">Demo</a></li>
+<li><a href="#dsep">D-Separation Function</a></li>
 <li><a href="#results">Results</a></li>
 <li><a href="/neurodata/lol/blob/master/LICENSE">License</a></li>
-<li><a href="https://github.com/ebridge2/lol/issues">Issues</a></li>
 <li><a href="#Copyrights">Copyrights</a></li>
 </ul>
 <h1 tabindex="-1" id="user-content-overview" dir="auto"><a class="heading-link" href="#overview">Overview<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
@@ -23,10 +22,8 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 <h1 tabindex="-1" id="user-content-repo-contents" dir="auto"><a class="heading-link" href="#repo-contents">Repo Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <ul dir="auto">
 <li><a href="/neurodata/lol/blob/master/R">R</a>: <code>R</code> package code.</li>
-<li><a href="/neurodata/lol/blob/master/docs">docs</a>: package documentation, and usage of the <code>lolR</code> package on many real and simulated data examples.</li>
-<li><a href="/neurodata/lol/blob/master/man">man</a>: package manual for help in R session.</li>
-<li><a href="/neurodata/lol/blob/master/tests">tests</a>: <code>R</code> unit tests written using the <code>testthat</code> package.</li>
-<li><a href="/neurodata/lol/blob/master/vignettes">vignettes</a>: <code>R</code> vignettes for R session html help pages.</li>
+<li><a href="/neurodata/lol/blob/master/docs">docs</a>: package documentation, and usage of the <code>bnlearn</code> package on our dataset.</li>
+<li><a href="/neurodata/lol/blob/master/man">dataset</a>: real dataset to use in the <code>R</code> session.</li>
 </ul>
 <h1 tabindex="-1" id="user-content-system-requirements" dir="auto"><a class="heading-link" href="#system-requirements">System Requirements<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <h2 tabindex="-1" id="user-content-hardware-requirements" dir="auto"><a class="heading-link" href="#hardware-requirements">Hardware and OS Requirements<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
@@ -169,13 +166,21 @@ vignette('nearestCentroid')" tabindex="0" role="button">
 </svg>
     </clipboard-copy>
   </div></div>
-<h2 tabindex="-1" id="user-content-extending-the-lolr-package" dir="auto"><a class="heading-link" href="#extending-the-lolr-package">Extending the lolR Package<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
-<p dir="auto">The lolR package makes many useful resources available (such as embedding and cross-validation) for simple extension.</p>
-<p dir="auto">To extend the lolR package, check out the vignettes:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>require(lolR)
-vignette('extend_embedding')
-vignette('extend_classification')
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
+<h2 tabindex="-1" id="dsep" dir="auto"><a class="heading-link" href="#dsep">D-separation function<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
+<p dir="auto">We have created the <code>dsep.dag</code> function that can evaluate d-separation for any given node pair.  This function uses the optimized DAG results to identify the following for each node pair and then calculates conditional independence: 1. Parents; 2. Neighbors (i.e., parents and children for each node); and 3. Markov-Blanket (i.e., parents, children, and parents of children for each node). Furthermore, this function uses data to evaluate d-separation in addition to the results of DAG discovery. This combines the functionalities of the <code>ci.test</code> and <code>dsep</code> functions available in the <code>bnlearn</code> package. Where <code>ci.test</code> exclusively utilizes data, while <code>dsep.dag</code> solely employs DAGs.</p>
+
+<div style="text-align: center;">
+  <code>dsep.dag(x, <span style="color: blue;">data</span><span>,</span> <span style="color: red;">z</span><span>)</span></code>
+</div>
+<h4>Parameters</h4>
+<p>The <code>dsep.dag</code> function accepts the following parameters:</p>
+<ul>
+  <li><code>x</code>: an object of class <code>bn</code></li>
+  <li><code>data</code>: a data frame containing the variables in the model</li>
+  <li><code>z</code>: a list, where each element is a character vector representing a pair of node labels</li>
+  <!-- The following item is commented out, as in the original LaTeX source -->
+  <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
+</ul>
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="require(lolR)
 vignette('extend_embedding')
 vignette('extend_classification')" tabindex="0" role="button">
