@@ -106,18 +106,15 @@ tidyverse 2.0.0
 </ul>
 
 <h2 id="Box-Cox Transformer">Box-Cox Transformer</h2>
-<p>Evaluates the data-set and checks for normality (using Shapiro-Wilk test), transforms the non-Gaussian variables using Box-Cox transformation. Re-evaluates the transformed variables with the Shapiro-Wilk test and checks for normality. Returns the results.</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>dsep.dag(x, data, z)</span>
+<p>The <code>transform_and_test</code> function evaluates the data set, checks for normality (using the Shapiro-Wilk test), and transforms the non-Gaussian variables using the Box-Cox transformation. Re-evaluates the transformed variables with the Shapiro-Wilk test and checks for normality. Returns the results.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>transform_and_test(data, z)</span>
 </code></pre>
 
 <h4>Parameters</h4>
-<p>The <code>dsep.dag</code> function accepts the following parameters:</p>
+<p>The <code>transform_and_test</code> function accepts the following parameters:</p>
 <ul>
-  <li><code>x</code>: an object of class <code>bn</code></li>
   <li><code>data</code>: a data frame containing the variables in the model</li>
-  <li><code>z</code>: a list, where each element is a character vector representing a pair of node labels</li>
-  <!-- The following item is commented out, as in the original LaTeX source -->
-  <!-- <li><strong>set</strong>: a character string, the label of the conditioning set to be used in the algorithm. If none is specified, three default sets are used</li> -->
+  <li><code>z</code>: a list, where each element is a character vector representing a variable</li>
 </ul>
 
 <h2 id="Fitness Test">Goodness of Fit Test</h2>
