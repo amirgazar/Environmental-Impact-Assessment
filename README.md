@@ -3,12 +3,9 @@ Using causal inference to scope environmental impact assessment in sociotechnica
 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
-<p dir="auto"><a href="http://cran.r-project.org/web/packages/lolR" rel="nofollow"><img src="https://camo.githubusercontent.com/4dae6f54a8b4fcae95244d71d1798be4a4a2e1e9c178fceae5912f7a283de8c8/687474703a2f2f7777772e722d706b672e6f72672f6261646765732f76657273696f6e2f6c6f6c52" alt="CRAN Status Badge" data-canonical-src="http://www.r-pkg.org/badges/version/lolR" style="max-width: 100%;"></a>
-<a href="https://arxiv.org/abs/1709.01233" rel="nofollow"><img src="https://camo.githubusercontent.com/899f243c1deacbe3acc3cbf38b8345f949a0a65d2a7e7720be1564a489ecc743/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f61725869762d313730392e30313233332d7265642e7376673f7374796c653d666c6174" alt="arXiv shield" data-canonical-src="https://img.shields.io/badge/arXiv-1709.01233-red.svg?style=flat" style="max-width: 100%;"></a>
-<a href="https://travis-ci.org/neurodata/lol" rel="nofollow"><img src="https://camo.githubusercontent.com/9c78eaeaa9b840f03498b6cff89171eee352287a0071fe941734bfe60f1770c1/68747470733a2f2f7472617669732d63692e6f72672f6e6575726f646174612f6c6f6c2e7376673f6272616e63683d6d6173746572" alt="Travis-CI Build Status" data-canonical-src="https://travis-ci.org/neurodata/lol.svg?branch=master" style="max-width: 100%;"></a>
-<a href="https://codecov.io/gh/neurodata/lol" rel="nofollow"><img src="https://camo.githubusercontent.com/03cf0fe29479429333fde466234bafb6810a6923ed9cdb336514691b3844092f/68747470733a2f2f636f6465636f762e696f2f67682f6e6575726f646174612f6c6f6c2f6272616e63682f6d61737465722f67726170682f62616467652e737667" alt="Codecov status" data-canonical-src="https://codecov.io/gh/neurodata/lol/branch/master/graph/badge.svg" style="max-width: 100%;"></a>
-<a href="https://cranlogs.r-pkg.org/badges/lolR" rel="nofollow"><img src="https://camo.githubusercontent.com/fa8cd7af26f763259ef3742fb8639cceb845f181a0ec9384fd6b4a5b99b41752/68747470733a2f2f6372616e6c6f67732e722d706b672e6f72672f6261646765732f6c6f6c52" alt="Downloads badge" data-canonical-src="https://cranlogs.r-pkg.org/badges/lolR" style="max-width: 100%;"></a>
-<a href="https://doi.org/10.5281/zenodo.1246979" rel="nofollow"><img src="https://camo.githubusercontent.com/888c775f96dba022bf1d23a3691790aae5e63923a6f22bf98a84ea6ce8726b18/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e313234363937392e737667" alt="DOI" data-canonical-src="https://zenodo.org/badge/DOI/10.5281/zenodo.1246979.svg" style="max-width: 100%;"></a></p>
+<a href="https://zenodo.org/badge/latestdoi/693841630"><img src="https://zenodo.org/badge/693841630.svg" alt="DOI"></a>
+
+
 <h2 tabindex="-1" id="user-content-contents" dir="auto"><a class="heading-link" href="#contents">Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
 <ul dir="auto">
 <li><a href="#overview">Overview</a></li>
@@ -198,8 +195,6 @@ vignette('extend_classification')" tabindex="0" role="button">
 </article>
           </div>
 In this paper, we utilize Bayesian Models in R to create Directed Acyclic Graphs (DAGs).
-<a href="https://zenodo.org/badge/latestdoi/693841630"><img src="https://zenodo.org/badge/693841630.svg" alt="DOI"></a>
-
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
