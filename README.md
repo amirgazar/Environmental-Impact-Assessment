@@ -13,7 +13,6 @@
 <li><a href="#system-requirements">System Requirements</a></li>
 <li><a href="#installation-guide">Installation Guide</a></li>
 <li><a href="#new-functions">New Functions</a></li>
-<li><a href="#results">Results</a></li>
 <li><a href="#citations">Citations</a></li>
 <li><a href="#Copyrights">Copyrights</a></li>
 </ul>
@@ -146,9 +145,6 @@ tidyverse 2.0.0
   <li><code>pred</code>: a data frame containing discrete variables predictions using the model</li>
 </ul>
 
-<h1 tabindex="-1" id="user-content-results" dir="auto">Results</h1>
-
-BLANK.
 
 <h1 tabindex="-1" id="citations" dir="auto">Citations</h1>
 Please cite using the following <a rel="bib" href="citation.bib"> citation.bib</a> when using this code or the associated manuscript.
