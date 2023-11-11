@@ -1,4 +1,4 @@
-# Transborder electrical interties do not stimulate development of Canadian hydroelectric resources
+# Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
