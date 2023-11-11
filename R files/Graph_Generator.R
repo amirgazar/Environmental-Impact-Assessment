@@ -1,5 +1,5 @@
 ## MUST RUN THE Hydro_Paper_BNLearn latest version first!!!
-
+setwd("/Users/amirgazar/Documents/GitHub/Hydro EIA Code/figs")
 # Set the theme for all plots
 theme_set(theme_minimal(base_family = "Times New Roman") + 
             theme(axis.text = element_text(color = "black"),
@@ -31,7 +31,7 @@ p <- ggplot(long_data, aes(x = DEMAND_QC_new_avg_5y_lag_5y,
   labs(x = "DEMAND_QC", y = "PRICE", size = "Predicted INSTALLED", color = "INVESTMENT") +
   scale_color_manual(values = colors)
 
-ggsave(filename = "fig_1.svg", plot = p, device = "svg")
+ggsave(filename = "SI_Figure_S5.svg", plot = p, device = "svg")
 
 # 2. Conditional probability table
 EXPORTS_new_avg_5y_lag_5y <- list(
@@ -68,8 +68,8 @@ for (level in names(EXPORTS_new_avg_5y_lag_5y)) {
   plot_list[[level]] <- p
 }
 
-ggsave(filename = "fig_2.svg", plot = plot_list[[1]], device = "svg")
-ggsave(filename = "fig_3.svg", plot = plot_list[[2]], device = "svg")
+ggsave(filename = "SI_Figure_S8A.svg", plot = plot_list[[1]], device = "svg")
+ggsave(filename = "SI_Figure_S8B.svg", plot = plot_list[[2]], device = "svg")
 
 # 3. Conditional probability table
 data <- data.frame(
@@ -89,7 +89,7 @@ p<- ggplot(data, aes(x = INSTALLED_5y_lag_5y, y = value, fill = INTERTIE_5y)) +
   facet_wrap(~INVESTMENT_5y, nrow = 1) +
   labs(y = "Probability", x = "INSTALLED", fill = "INTERTIE") +
   scale_fill_manual(values = palette) 
-ggsave(filename = "fig_4.svg", plot = p, device = "svg")
+ggsave(filename = "SI_Figure_S6.svg", plot = p, device = "svg")
 # 4. Conditional density
 intercepts <- c(0.06873333, 0.10085000, 0.11086667)
 std_devs <- c(0.004001666, 0.025626283, 0.021735956)
@@ -112,7 +112,7 @@ p <- ggplot(data, aes(x = PRICE_5y, y = Probability_Density, color = DEMAND_US_5
   labs(x = "PRICE",
        y = "Probability Density", color = "DEMAND_US") +
   scale_color_manual(values = c("black", "darkblue", "lightgray")) 
-ggsave(filename = "fig_5.svg", plot = p, device = "svg")
+ggsave(filename = "SI_Figure_S7.svg", plot = p, device = "svg")
 # 5. Conditional density
 
 df.expert.5y$EXPORTS_5y_pred = predict(model.expert.5y.emp, node = "EXPORTS_5y", data = df.expert.5y, method = "bayes-lw")
@@ -124,7 +124,7 @@ p<- ggplot(df.expert.5y, aes(x = PRICE_5y, y = INSTALLED_5y, size = EXPORTS_5y_p
        size = "Predicted EXPORTS",
        color = "INTERTIE") +
   scale_color_manual(values = c("black", "darkgray", "lightgray"))
-ggsave(filename = "fig_6.svg", plot = p, device = "svg")
+ggsave(filename = "SI_Figure_S9.svg", plot = p, device = "svg")
 
 # BIC Model Results
 # 1. INTERTIE | DEMAND, INSTALLED
@@ -161,4 +161,4 @@ plot <- ggplot(line_data, aes(x = x, y = y, color = line)) +
     panel.grid.minor = element_blank()
   )
 
-ggsave(filename = "fig_7.svg", plot = plot, device = "svg")
+ggsave(filename = "SI_Figure_S10.svg", plot = plot, device = "svg")
