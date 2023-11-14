@@ -31,11 +31,11 @@
 <ul dir="auto">
 <li>
   <a href="R">R</a>: contains <code>R</code> files; 
-  <code>PENDING PREPRINT</code>
+  <code>[pending preprint]</code>
 </li>
 
-<li><a href="doc/Reproduction Information.pdf">doc</a>: code reproduction information, manual for using the <code>bnlearn</code> package on our dataset; <code>PENDING PREPRINT</code></li>
-<li><a href="data">data</a>: real dataset to use in the <code>R</code> session; <code>PENDING PREPRINT</code></li>
+<li><a href="doc/Reproduction Information.pdf">doc</a>: code reproduction information, manual for using the <code>bnlearn</code> package on our dataset; <code>[pending preprint]</code></li>
+<li><a href="data">data</a>: real dataset to use in the <code>R</code> session; <code>[pending preprint]</code></li>
 <li><a href="citation.bib">citation</a>: bib code to use when citing this code or the manuscript</li>
 <li><a href="LICENSE">license</a>: creative commons attribution 4.0 international license</li>
 <li><a href="misc">misc</a>: includes miscellaneous files such as source code to generate Figure 4 in the manuscript</li>
