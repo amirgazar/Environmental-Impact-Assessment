@@ -1,9 +1,7 @@
 # Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
-Latest update: November 14, 2023
-
-https://img.shields.io/github/all-contributors/amirgazar/all-contributors
-
+<img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/amirgazar/Environmental-Impact-Assessment/master">
 <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/m/amirgazar/Environmental-Impact-Assessment">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/amirgazar/Environmental-Impact-Assessment">
 
 
 
