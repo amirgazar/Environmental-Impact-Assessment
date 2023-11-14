@@ -1,5 +1,17 @@
+# Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
+# Amir Mortazavigazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
+# 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
+# 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
+# 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 27708, USA
+# 4 Faculty of Health Sciences, Virginia Tech, Roanoke, VA, 24016, USA
+# 5 Department of Civil and Environmental Engineering, Virginia Tech, Blacksburg, VA, 24061, USA
+
+# *Contact: amirgazar@vt.edu.   
+# All rights reserved under Creative Commons 4.0
+
 import matplotlib.pyplot as plt
 import pandas as pd
+
 # import the dataset hydro_var_aug23.csv using pandas as a dataframe
 df = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/hydro_var_aug23.csv")
 
