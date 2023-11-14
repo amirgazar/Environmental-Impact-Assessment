@@ -1,5 +1,5 @@
 # Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
-Latest update on November 14, 2023.
+Latest update: November 14, 2023
 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
