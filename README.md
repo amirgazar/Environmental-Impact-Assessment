@@ -4,9 +4,9 @@
 
 <div class="topper-featured-image__inner">
     <figure class="topper-featured-image__figure">
-	            <img src="https://github.com/amirgazar/Environmental-Impact-Assessment/blob/main/misc/Transmission_line.jpg" alt="">
+	            <img src="https://github.com/amirgazar/Environmental-Impact-Assessment/blob/main/misc/Transmission_line.jpeg" alt="">
                     <figcaption class="topper-featured-image__caption topper-featured-image__caption--">
-           <em aria-label="Credit:">Image by Canva Pro</em>        </figcaption>
+           <em aria-label="Credit:">Image source: Irfan Khan / Los Angeles Times via Getty Images </em>        </figcaption>
           </figure>
   </div>
 
