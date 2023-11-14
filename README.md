@@ -24,7 +24,16 @@
 </ul>
 <h1 tabindex="-1" id="user-content-overview" dir="auto">Overview<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <p dir="auto"> This repository contains data, instructions, and code for the "Transborder electrical interties do not stimulate the development of Canadian hydroelectric resources" paper that investigates how sociotechnical systems affect decarbonization. This repository includes R code, a manual for using the code and utilizing the <code>bnlearn</code><sup>[1]</sup> package in this context, and a real dataset for practical application.
-	![Canada_US](https://github.com/amirgazar/Environmental-Impact-Assessment/assets/35587707/85188c2a-3fa9-49cc-8f35-b68139e75e0f)
+
+ <div class="topper-featured-image__inner">
+    <figure class="topper-featured-image__figure">
+	            <img src="(https://github.com/amirgazar/Environmental-Impact-Assessment/assets/35587707/85188c2a-3fa9-49cc-8f35-b68139e75e0f)" alt="">
+                    <figcaption class="topper-featured-image__caption topper-featured-image__caption--">
+           <em aria-label="Credit:">Irfan Khan / Los Angeles Times via Getty Images</em>        </figcaption>
+          </figure>
+  </div>
+
+	![Canada_US]()
 
 </p>
 <h1 tabindex="-1" id="user-content-repo-contents" dir="auto">Repo Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
