@@ -4,7 +4,7 @@
 
 <div class="topper-featured-image__inner">
     <figure class="topper-featured-image__figure">
-	            <img src="https://grist.org/wp-content/uploads/2021/09/power-lines-ca.jpg" alt="">
+	            <img src="https://github.com/amirgazar/Environmental-Impact-Assessment/blob/main/misc/Transmission_line.jpeg" alt="">
                     <figcaption class="topper-featured-image__caption topper-featured-image__caption--">
            <em aria-label="Credit:">Irfan Khan / Los Angeles Times via Getty Images</em>        </figcaption>
           </figure>
