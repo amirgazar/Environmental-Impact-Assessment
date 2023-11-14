@@ -1,7 +1,7 @@
 # Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
 <img alt="GitHub Release Date - Published_At" src="https://img.shields.io/github/release-date/amirgazar/Environmental-Impact-Assessment?color=black"> <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/amirgazar/Environmental-Impact-Assessment?color=gold"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/amirgazar/Environmental-Impact-Assessment?color=cyan"> [<img alt="Static Badge" src="https://img.shields.io/badge/license-CC--BY--4.0-tst">](https://creativecommons.org/licenses/by/4.0/) <img alt="Static Badge" src="https://img.shields.io/badge/preprint-doi%20pending-blue">
 
-
+[<img alt="Static Badge" src="https://img.shields.io/badge/repo-bnlearn-black">](https://github.com/erdogant/bnlearn) 
 
 
 
@@ -174,4 +174,4 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 
 <h1 tabindex="-1" id="citations" dir="auto">References</h1>
-[1] M. Scutari. Learning Bayesian Networks with the bnlearn R Package. Journal of Statistical Software, 35(3):1-22, 2010. [<img alt="Static Badge" src="https://img.shields.io/badge/repo-bnlearn-black">](https://github.com/erdogant/bnlearn) 
+[1] M. Scutari. Learning Bayesian Networks with the bnlearn R Package. Journal of Statistical Software, 35(3):1-22, 2010. 
