@@ -2,6 +2,8 @@
 Latest update: November 14, 2023
 
 https://img.shields.io/github/all-contributors/amirgazar/all-contributors
+https://img.shields.io/github/commit-activity/y/amirgazar/Environmental-Impact-Assessment
+
 
 
 
