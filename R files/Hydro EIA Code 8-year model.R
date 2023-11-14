@@ -1,5 +1,4 @@
-# Does increased transborder transmission capacity stimulate Canadian hydroelectric development? 
-# Using causal inference to scope environmental impact assessment in sociotechnical systems
+# Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
 # Amir Mortazavigazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
 # 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
 # 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
@@ -8,6 +7,7 @@
 # 5 Department of Civil and Environmental Engineering, Virginia Tech, Blacksburg, VA, 24061, USA
 
 # *Contact: amirgazar@vt.edu.   
+# All rights reserved under Creative Commons 4.0
 
 
 # Install Rgraphviz from Bioconductor
