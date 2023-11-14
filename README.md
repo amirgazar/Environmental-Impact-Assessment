@@ -6,7 +6,7 @@
     <figure class="topper-featured-image__figure">
         <img src="https://github.com/amirgazar/Environmental-Impact-Assessment/blob/main/misc/Transmission_line.jpg" alt="">
         <figcaption class="topper-featured-image__caption topper-featured-image__caption--">
-            Image source: American Public Power Association, free to use under the Unsplash License
+            Image courtsey of American Public Power Association
         </figcaption>
     </figure>
 </div>
