@@ -27,7 +27,7 @@
 
  <div class="topper-featured-image__inner">
     <figure class="topper-featured-image__figure">
-	            <img src="(https://github.com/amirgazar/Environmental-Impact-Assessment/assets/35587707/85188c2a-3fa9-49cc-8f35-b68139e75e0f)" alt="">
+	            <img src="https://github.com/amirgazar/Environmental-Impact-Assessment/blob/main/misc/Canada_US.png" alt="">
                     <figcaption class="topper-featured-image__caption topper-featured-image__caption--">
            <em aria-label="Credit:">Irfan Khan / Los Angeles Times via Getty Images</em>        </figcaption>
           </figure>
