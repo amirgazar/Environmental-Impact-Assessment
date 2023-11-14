@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+# import the dataset hydro_var_aug23.csv using pandas as a dataframe
 df = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/hydro_var_aug23.csv")
 
 fig, ax1 = plt.subplots()
