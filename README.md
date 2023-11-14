@@ -169,7 +169,7 @@ When using this code or the associated manuscript, please cite using the followi
           </div>
 
 
-This work is licensed under a Creative Commons Attribution 4.0 International License</a>.[<img alt="Static Badge" src="https://img.shields.io/badge/license-CC--BY--4.0-tst">](https://creativecommons.org/licenses/by/4.0/) 
+This work is licensed under a Creative Commons Attribution 4.0 International License</a>. </br>[<img alt="Static Badge" src="https://img.shields.io/badge/license-CC--BY--4.0-tst">](https://creativecommons.org/licenses/by/4.0/) 
 <h1 tabindex="-1" id="citations" dir="auto">References</h1>
   [1] M. Scutari. Learning Bayesian Networks with the bnlearn R Package. 
   Journal of Statistical Software, 35(3):1-22, 2010.
