@@ -173,6 +173,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 
 <h1 tabindex="-1" id="citations" dir="auto">References</h1>
-<h4 tabindex="-1" id="citations" dir="auto"> [1] M. Scutari. Learning Bayesian Networks with the bnlearn R Package. Journal of Statistical Software, 35(3):1-22, 2010. </h4> [<img alt="Static Badge" src="https://img.shields.io/badge/repo-bnlearn-black">](https://github.com/erdogant/bnlearn) 
-
+<h4 tabindex="-1" id="citations" dir="auto">
+  [1] M. Scutari. Learning Bayesian Networks with the bnlearn R Package. 
+  Journal of Statistical Software, 35(3):1-22, 2010.
+</h4>
+<a href="https://github.com/bnlearn/bnlearn" target="_blank">
+  <img alt="Static Badge" src="https://img.shields.io/badge/repo-bnlearn-black">
+</a>
 
