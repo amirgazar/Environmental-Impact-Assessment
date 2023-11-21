@@ -1,6 +1,5 @@
 # Do electrical interties stimulate Canadian hydroelectric development? Using causal inference to scope environmental impact assessment in evolving sociotechnical systems
 <img alt="GitHub Release Date - Published_At" src="https://img.shields.io/github/release-date/amirgazar/Environmental-Impact-Assessment?color=black"> <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/amirgazar/Environmental-Impact-Assessment?color=gold"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/amirgazar/Environmental-Impact-Assessment?color=cyan"> [<img alt="Static Badge" src="https://img.shields.io/badge/license-CC--BY--4.0-tst">](https://creativecommons.org/licenses/by/4.0/) <img alt="Static Badge" src="https://img.shields.io/badge/preprint-doi%20pending-blue">
-</br><code>Some contents in this repository are not available until the preprint is online (see repo contents).</code>
 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
@@ -14,7 +13,8 @@
 </div>
 
 <h2 tabindex="-1" id="user-content-contents" dir="auto">Abstract<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"></svg></a></h2>
-<code>[pending preprint]</code>
+Debates over the scope of environmental impact and life cycle assessment frequently revolve around disagreements on the causal structure of complex sociotechnical systems. Environmental advocates in the United States have claimed that new electrical interties with Canada increase development of Canadian hydroelectric resources, leading to environmental and health impacts associated with new reservoirs. Recently, two large (9.5 TWh year<sup>-1</sup>) transborder transmission projects were cancelled as a result of community opposition, delaying decarbonization. We demonstrate via Bayesian network modeling that development of Canadian hydroelectric resources is stimulated by price signals and domestic demand rather than increased export capacity. This suggests a narrower scope for environmental impacts considered in the setting of transborder interties and may increase support for transmission projects among stakeholders. More broadly, Bayesian analysis can be used to elucidate causal divers in evolving sociotechnical systems to develop consensus for the scope of environmental impacts to consider in cost-benefit analysis. ![image](https://github.com/amirgazar/Environmental-Impact-Assessment/assets/35587707/7a6c1603-572b-4389-96b9-093356dff662)
+
 <h2 tabindex="-1" id="user-content-contents" dir="auto">Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
 
 <ul dir="auto">
@@ -32,15 +32,14 @@
 <h1 tabindex="-1" id="user-content-repo-contents" dir="auto">Repo Contents<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <ul dir="auto">
 <li>
-  <a href="R">R</a>: contains <code>R</code> files; 
-  <code>[pending preprint]</code>
+  <a href="R">R</a>: contains <code>R</code> files
 </li>
 
-<li><a href="doc/Reproduction Information.pdf">doc</a>: code reproduction information, manual for using the <code>bnlearn</code> package on our dataset; <code>[pending preprint]</code></li>
-<li><a href="data">data</a>: real dataset to use in the <code>R</code> session; <code>[pending preprint]</code></li>
+<li><a href="doc/Reproduction Information.pdf">doc</a>: code reproduction information, manual for using the <code>bnlearn</code> package on our dataset</li>
+<li><a href="data">data</a>: real dataset to use in the <code>R</code> session</li>
 <li><a href="citation.bib">citation</a>: bib code to use when citing this code or the manuscript</li>
 <li><a href="LICENSE">license</a>: creative commons attribution 4.0 international license</li>
-<li><a href="misc">misc</a>: includes miscellaneous files such as source code to generate Figure 4 in the manuscript <code>[pending preprint]</code></li>
+<li><a href="misc">misc</a>: includes miscellaneous files such as source code to generate Figure 4 in the manuscript </li>
 </ul>
 <h1 tabindex="-1" id="user-content-system-requirements" dir="auto">System Requirements<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h1>
 <h2 tabindex="-1" id="user-content-hardware-requirements" dir="auto">Hardware and OS Requirements<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
