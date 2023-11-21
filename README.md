@@ -1,4 +1,4 @@
-# Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
+# Do electrical interties stimulate Canadian hydroelectric development? Using causal inference to scope environmental impact assessment in evolving sociotechnical systems
 <img alt="GitHub Release Date - Published_At" src="https://img.shields.io/github/release-date/amirgazar/Environmental-Impact-Assessment?color=black"> <img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/amirgazar/Environmental-Impact-Assessment?color=gold"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/amirgazar/Environmental-Impact-Assessment?color=cyan"> [<img alt="Static Badge" src="https://img.shields.io/badge/license-CC--BY--4.0-tst">](https://creativecommons.org/licenses/by/4.0/) <img alt="Static Badge" src="https://img.shields.io/badge/preprint-doi%20pending-blue">
 </br><code>Some contents in this repository are not available until the preprint is online (see repo contents).</code>
 
