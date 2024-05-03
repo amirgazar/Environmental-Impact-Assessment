@@ -2,12 +2,13 @@
 # Amir M. Gazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
 # 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
 # 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
-# 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 27708, USA
+# 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 277015, USA
 # 4 Faculty of Health Sciences, Virginia Tech, Roanoke, VA, 24016, USA
 # 5 Department of Civil and Environmental Engineering, Virginia Tech, Blacksburg, VA, 24061, USA
 
 # *Contact: amirgazar@vt.edu.   
 # All rights reserved under Creative Commons 4.0
+
 
 # Install Rgraphviz from Bioconductor
 #if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -23,6 +24,7 @@
 # Load all the required packages
 invisible(lapply(c("Rgraphviz", "bnlearn", "gRain", "visNetwork", "ggplot2", 
                    "stats", "zoo", "scales", "gridExtra", "dplyr", "MASS","svglite","tidyverse"), library, character.only = TRUE))
+
 
 # Set Working Directory (change for your setup)
 setwd("/Users/amirgazar/Documents/GitHub/Hydro EIA Code/data")
@@ -277,84 +279,84 @@ dsep.dag <- function(dag, data, node_pairs) {
     hydro.data$PRICE_new[i] = hydro.data$PRICE[i] -
       hydro.data$PRICE[i-1]
   }  
-  # Sum of new intertie capacity in preceding 5 years
-  hydro.data$INTERTIE_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$INTERTIE_5y[i] = sum(hydro.data$INTERTIE_new[(i-4):i],na.rm=T)
+  # Sum of new intertie capacity in preceding 15 years
+  hydro.data$INTERTIE_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$INTERTIE_15y[i] = sum(hydro.data$INTERTIE_new[(i-14):i],na.rm=T)
   }
-  # Sum of new installed capacity in preceding 5 years
-  hydro.data$INSTALLED_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$INSTALLED_5y[i] = sum(hydro.data$INSTALLED_new[(i-4):i],na.rm=T)
+  # Sum of new installed capacity in preceding 15 years
+  hydro.data$INSTALLED_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$INSTALLED_15y[i] = sum(hydro.data$INSTALLED_new[(i-14):i],na.rm=T)
     
   }
-  # Sum of new installed capacity in preceding 5 years lagged by 5 years
-  hydro.data$INSTALLED_5y_lag_5y = NA
-  for(i in 10:nrow(hydro.data)){
-    hydro.data$INSTALLED_5y_lag_5y[i] = hydro.data$INSTALLED_5y[i-5]
+  # Sum of new installed capacity in preceding 15 years lagged by 15 years
+  hydro.data$INSTALLED_15y_lag_15y = NA
+  for(i in 17:nrow(hydro.data)){
+    hydro.data$INSTALLED_15y_lag_15y[i] = hydro.data$INSTALLED_15y[i-15]
     
   }
-  # Sum of new intertie capacity in preceding 5 years lagged by 5 years
-  hydro.data$INTERTIE_5y_lag_5y = NA
-  for(i in 10:nrow(hydro.data)){
-    hydro.data$INTERTIE_5y_lag_5y[i] = hydro.data$INTERTIE_5y[i-5]
+  # Sum of new intertie capacity in preceding 15 years lagged by 15 years
+  hydro.data$INTERTIE_15y_lag_15y = NA
+  for(i in 17:nrow(hydro.data)){
+    hydro.data$INTERTIE_15y_lag_15y[i] = hydro.data$INTERTIE_15y[i-15]
   }
-  # Mean price difference in preceding 5 years
-  hydro.data$PRICE_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$PRICE_5y[i] = mean(hydro.data$PRICE[(i-4):i],na.rm=T)
+  # Mean price difference in preceding 15 years
+  hydro.data$PRICE_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$PRICE_15y[i] = mean(hydro.data$PRICE[(i-14):i],na.rm=T)
     
   }
-  # Sum of PRICE mean in preceding 5 years lagged by 5 years
-  hydro.data$PRICE_5y_lag_5y = NA
-  for(i in 10:nrow(hydro.data)){
-    hydro.data$PRICE_5y_lag_5y[i] = hydro.data$PRICE_5y[i-5]
+  # Sum of PRICE mean in preceding 15 years lagged by 15 years
+  hydro.data$PRICE_15y_lag_15y = NA
+  for(i in 17:nrow(hydro.data)){
+    hydro.data$PRICE_15y_lag_15y[i] = hydro.data$PRICE_15y[i-15]
     
   }
-  # Mean export in preceding 5 years
-  hydro.data$EXPORTS_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$EXPORTS_5y[i] = mean(hydro.data$EXPORTS[(i-4):i],na.rm=T)
+  # Mean export in preceding 15 years
+  hydro.data$EXPORTS_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$EXPORTS_15y[i] = mean(hydro.data$EXPORTS[(i-14):i],na.rm=T)
   }
-  # Mean QC demand in preceding 5 years
-  hydro.data$DEMAND_QC_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$DEMAND_QC_5y[i] = mean(hydro.data$DEMAND_QC[(i-4):i],na.rm=T)
+  # Mean QC demand in preceding 15 years
+  hydro.data$DEMAND_QC_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$DEMAND_QC_15y[i] = mean(hydro.data$DEMAND_QC[(i-14):i],na.rm=T)
   }
   
-  # Mean QC demand in preceding 5 years lagged by 5 years
-  hydro.data$DEMAND_QC_5y_lag_5y = NA
-  for(i in 10:nrow(hydro.data)){
-    hydro.data$DEMAND_QC_5y_lag_5y[i] = hydro.data$DEMAND_QC_5y[i-5]
+  # Mean QC demand in preceding 15 years lagged by 15 years
+  hydro.data$DEMAND_QC_15y_lag_15y = NA
+  for(i in 17:nrow(hydro.data)){
+    hydro.data$DEMAND_QC_15y_lag_15y[i] = hydro.data$DEMAND_QC_15y[i-15]
   }
-  # Mean US demand in preceding 5 years
-  hydro.data$DEMAND_US_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$DEMAND_US_5y[i] = mean(hydro.data$DEMAND_US[(i-4):i],na.rm=T)
+  # Mean US demand in preceding 15 years
+  hydro.data$DEMAND_US_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$DEMAND_US_15y[i] = mean(hydro.data$DEMAND_US[(i-14):i],na.rm=T)
   }
   
-  # Mean US demand in preceding 5 years lagged by 5 years
-  hydro.data$DEMAND_US_5y_lag_5y = NA
-  for(i in 10:nrow(hydro.data)){
-    hydro.data$DEMAND_US_5y_lag_5y[i] =
-      hydro.data$DEMAND_US_5y[i-5]
+  # Mean US demand in preceding 15 years lagged by 15 years
+  hydro.data$DEMAND_US_15y_lag_15y = NA
+  for(i in 17:nrow(hydro.data)){
+    hydro.data$DEMAND_US_15y_lag_15y[i] =
+      hydro.data$DEMAND_US_15y[i-15]
     
   }
-  # Mean investment in preceding 5 years
-  hydro.data$INVESTMENT_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$INVESTMENT_5y[i] = mean(hydro.data$INVESTMENT[(i-4):i],na.rm=T)
+  # Mean investment in preceding 15 years
+  hydro.data$INVESTMENT_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$INVESTMENT_15y[i] = mean(hydro.data$INVESTMENT[(i-14):i],na.rm=T)
   }
   
-  # Total investment in preceding 5 years
-  hydro.data$INVESTMENT_total_5y = NA
-  for(i in 5:nrow(hydro.data)){
-    hydro.data$INVESTMENT_total_5y[i] = sum(hydro.data$INVESTMENT[(i-4):i],na.rm=T)
+  # Total investment in preceding 15 years
+  hydro.data$INVESTMENT_total_15y = NA
+  for(i in 15:nrow(hydro.data)){
+    hydro.data$INVESTMENT_total_15y[i] = sum(hydro.data$INVESTMENT[(i-14):i],na.rm=T)
   }
 }
 
-# Creating _new 5 year averaged and lagged
-lag_periods <- c(5)
+# Creating _new 15 year averaged and lagged
+lag_periods <- c(15)
 new_vars <- c("INTERTIE", "INSTALLED", "DEMAND_QC", "DEMAND_US", "INVESTMENT", "EXPORTS", "PRICE")
 
 for (var in new_vars) {
@@ -371,69 +373,76 @@ for (var in new_vars) {
   }
 }
 
-# Subset of data with 5-yr avg/lag for everything
-vars.exclude.5y = c(1:8,grep("_new$",colnames(hydro.data)))
+# Subset of data with 15-yr avg/lag for everything
+vars.exclude.15y = c(1:15,grep("_new$",colnames(hydro.data)))
 
-hydro.data.subset.5y = 
+hydro.data.subset.15y = 
   hydro.data[,setdiff(1:ncol(hydro.data),
-                      vars.exclude.5y)]
+                      vars.exclude.15y)]
 # Ensuring that all variables are numeric
-for(i in 1:ncol(hydro.data.subset.5y)){
-  hydro.data.subset.5y[,i] = as.numeric(hydro.data.subset.5y[,i]) 
+for(i in 1:ncol(hydro.data.subset.15y)){
+  hydro.data.subset.15y[,i] = as.numeric(hydro.data.subset.15y[,i]) 
 }
 
 # Create new dataframe 
-df.5y = hydro.data.subset.5y
+df.15y = hydro.data.subset.15y
 
 # Creating new data frames with minimum number of rows cut off
-lag.cols.5y = grep("lag",colnames(df.5y))
-df.5y.no.lags = df.5y[,setdiff(1:ncol(df.5y),
-                               lag.cols.5y)]
-df.5y.rows.to.cut = which(apply(df.5y,1,function(x) sum(is.na(x))>0))
-df.5y.no.lags.rows.to.cut = which(apply(df.5y.no.lags,1,function(x) sum(is.na(x))>0))
-df.5y.with.lags.no.NA = df.5y[setdiff(1:nrow(df.5y),
-                                      df.5y.rows.to.cut),]
+lag.cols.15y = grep("lag",colnames(df.15y))
+df.15y.no.lags = df.15y[,setdiff(1:ncol(df.15y),
+                               lag.cols.15y)]
+df.15y.rows.to.cut = which(apply(df.15y,1,function(x) sum(is.na(x))>0))
+df.15y.no.lags.rows.to.cut = which(apply(df.15y.no.lags,1,function(x) sum(is.na(x))>0))
+df.15y.with.lags.no.NA = df.15y[setdiff(1:nrow(df.15y),
+                                      df.15y.rows.to.cut),]
 # Check for gaussian distribution
 significance_level <- 0.05
-non_gaussian_5y_lag <- vector("list")
-for (var in colnames(df.5y.with.lags.no.NA)) {
+non_gaussian_15y_lag <- vector("list")
+for (var in colnames(df.15y.with.lags.no.NA)) {
   # Shapiro-Wilk Test
-  shapiro_test <- shapiro.test(df.5y.with.lags.no.NA[[var]])
+  shapiro_test <- shapiro.test(df.15y.with.lags.no.NA[[var]])
   print(paste("Shapiro-Wilk Test for", var, "- p-value:", shapiro_test$p.value))
   
   if (shapiro_test$p.value < significance_level) {
-    non_gaussian_5y_lag <- c(non_gaussian_5y_lag, var)
+    non_gaussian_15y_lag <- c(non_gaussian_15y_lag, var)
   }
 }
 # Box-Cox transformation for the non-gaussian variables and rechecking the gaussian distribution
-result_5y_lag <- transform_and_test(df.5y.with.lags.no.NA, non_gaussian_5y_lag)
-df.5y.with.lags.no.NA <- result_5y_lag$df
-still_non_gaussian_5y_lag <- result_5y_lag$still_non_gaussian
+result_15y_lag <- transform_and_test(df.15y.with.lags.no.NA, non_gaussian_15y_lag)
+df.15y.with.lags.no.NA <- result_15y_lag$df
+still_non_gaussian_15y_lag <- result_15y_lag$still_non_gaussian
 
-# We manually revert this var from box-cox transform to maintain consistancy with Price_5y var that was transfored by box-cox
-bc <- boxcox(df.5y.with.lags.no.NA$PRICE_5y_lag_5y ~ 1, plotit = FALSE)
+# We manually revert this var from box-cox transform to maintain consistancy with Price_15y var that was transfored by box-cox
+bc <- boxcox(df.15y.with.lags.no.NA$PRICE_15y ~ 1, plotit = FALSE)
 lambda <- bc$x[which.max(bc$y)]
-df.5y.with.lags.no.NA$PRICE_5y_lag_5y <- (df.5y.with.lags.no.NA$PRICE_5y_lag_5y^lambda - 1) / lambda
+df.15y.with.lags.no.NA$PRICE_15y <- (df.15y.with.lags.no.NA$PRICE_15y^lambda - 1) / lambda
 
 ## Discretising remaining variables that have significant SW test results or are zero-inflated 
-df.5y.with.lags.no.NA$INTERTIE_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_5y , breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_5y,na.rm=T ), 100, max(df.5y.with.lags.no.NA$INTERTIE_5y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y <- cut(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y , breaks = c(min(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y,na.rm=T ), 100, max(df.5y.with.lags.no.NA$INTERTIE_5y_lag_5y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$DEMAND_QC_5y <- cut(df.5y.with.lags.no.NA$DEMAND_QC_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_QC_5y,na.rm=T), 120, 160, max(df.5y.with.lags.no.NA$DEMAND_QC_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$DEMAND_US_5y <- cut(df.5y.with.lags.no.NA$DEMAND_US_5y, breaks = c(min(df.5y.with.lags.no.NA$DEMAND_US_5y,na.rm=T), 230, 260, max(df.5y.with.lags.no.NA$DEMAND_US_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$INVESTMENT_5y <- cut(df.5y.with.lags.no.NA$INVESTMENT_5y, breaks = c(min(df.5y.with.lags.no.NA$INVESTMENT_5y,na.rm=T), 2500, 3500, max(df.5y.with.lags.no.NA$INVESTMENT_5y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
-df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y <- cut(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y, breaks = c(min(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y,na.rm=T), 0, max(df.5y.with.lags.no.NA$EXPORTS_new_avg_5y_lag_5y,na.rm=T)), labels = c("negative", "positive"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$INTERTIE_15y <- cut(df.15y.with.lags.no.NA$INTERTIE_15y , breaks = c(min(df.15y.with.lags.no.NA$INTERTIE_15y,na.rm=T ), 100, max(df.15y.with.lags.no.NA$INTERTIE_15y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$INTERTIE_15y_lag_15y <- cut(df.15y.with.lags.no.NA$INTERTIE_15y_lag_15y , breaks = c(min(df.15y.with.lags.no.NA$INTERTIE_15y_lag_15y,na.rm=T ), 1250, max(df.15y.with.lags.no.NA$INTERTIE_15y_lag_15y,na.rm=T )), labels = c("non-significant", "significant"), include.lowest = TRUE, ordered_result = TRUE)
+
+df.15y.with.lags.no.NA$DEMAND_QC_15y = hydro.data$DEMAND_QC_15y[31:nrow(hydro.data)]
+df.15y.with.lags.no.NA$DEMAND_US_15y = hydro.data$DEMAND_US_15y[31:nrow(hydro.data)]
+df.15y.with.lags.no.NA$INVESTMENT_15y = hydro.data$INVESTMENT_15y[31:nrow(hydro.data)]
+df.15y.with.lags.no.NA$EXPORTS_new_avg_15y_lag_15y = hydro.data$EXPORTS_new_avg_15y_lag_15y[31:nrow(hydro.data)]
+
+
+df.15y.with.lags.no.NA$DEMAND_QC_15y <- cut(df.15y.with.lags.no.NA$DEMAND_QC_15y, breaks = c(min(df.15y.with.lags.no.NA$DEMAND_QC_15y,na.rm=T), 160, 170, max(df.15y.with.lags.no.NA$DEMAND_QC_15y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$DEMAND_US_15y <- cut(df.15y.with.lags.no.NA$DEMAND_US_15y, breaks = c(min(df.15y.with.lags.no.NA$DEMAND_US_15y,na.rm=T), 260, 268, max(df.15y.with.lags.no.NA$DEMAND_US_15y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$INVESTMENT_15y <- cut(df.15y.with.lags.no.NA$INVESTMENT_15y, breaks = c(min(df.15y.with.lags.no.NA$INVESTMENT_15y,na.rm=T), 3000, 3800, max(df.15y.with.lags.no.NA$INVESTMENT_15y,na.rm=T)), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$EXPORTS_new_avg_15y_lag_15y <- cut(df.15y.with.lags.no.NA$EXPORTS_new_avg_15y_lag_15y, breaks = c(min(df.15y.with.lags.no.NA$EXPORTS_new_avg_15y_lag_15y,na.rm=T), 0, max(df.15y.with.lags.no.NA$EXPORTS_new_avg_15y_lag_15y,na.rm=T)), labels = c("negative", "positive"), include.lowest = TRUE, ordered_result = TRUE)
 
 # We manually revert this var from box-cox transform due to its histogram 
-df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y = hydro.data$INSTALLED_5y_lag_5y[11:nrow(hydro.data)]
-df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y <- cut(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y , breaks = c(min(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y,na.rm=T ), 2000, 4000, max(df.5y.with.lags.no.NA$INSTALLED_5y_lag_5y,na.rm=T )), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
+df.15y.with.lags.no.NA$INSTALLED_15y_lag_15y = hydro.data$INSTALLED_15y_lag_15y[31:nrow(hydro.data)]
+df.15y.with.lags.no.NA$INSTALLED_15y_lag_15y <- cut(df.15y.with.lags.no.NA$INSTALLED_15y_lag_15y , breaks = c(min(df.15y.with.lags.no.NA$INSTALLED_15y_lag_15y,na.rm=T ), 8000, 14000, max(df.15y.with.lags.no.NA$INSTALLED_15y_lag_15y,na.rm=T )), labels = c("low", "medium", "high"), include.lowest = TRUE, ordered_result = TRUE)
 
 # Selecting columns of interest
-selected.columns <- c('INSTALLED_5y_lag_5y', 'INSTALLED_5y', 'DEMAND_QC_new_avg_5y_lag_5y', 'INVESTMENT_5y', 'PRICE_5y_lag_5y',
-                      'INTERTIE_5y_lag_5y', 'INTERTIE_5y', 'DEMAND_US_new_avg_5y_lag_5y', 'PRICE_5y',
-                      'EXPORTS_new_avg_5y_lag_5y', 'EXPORTS_5y', 'DEMAND_QC_5y', 'DEMAND_US_5y')
+selected.columns <- c('INSTALLED_15y_lag_15y', 'INSTALLED_15y', 'DEMAND_QC_new_avg_15y_lag_15y', 'INVESTMENT_15y', 'PRICE_15y_lag_15y',
+                      'INTERTIE_15y_lag_15y', 'INTERTIE_15y', 'DEMAND_US_new_avg_15y_lag_15y', 'PRICE_15y',
+                      'EXPORTS_new_avg_15y_lag_15y', 'EXPORTS_15y', 'DEMAND_QC_15y', 'DEMAND_US_15y')
 
 # Subsetting the dataframe and creating the final dataframe
-df.expert.5y <- df.5y.with.lags.no.NA[, selected.columns]
+df.expert.15y <- df.15y.with.lags.no.NA[, selected.columns]
 
 ## Creating the expert blacklist
 # The allow list is initialized with specific variable pairs.
@@ -441,50 +450,50 @@ allow.list.expert =
   data.frame(matrix(c(
     
     # Investment --> Installed
-    "INVESTMENT_5y","INSTALLED_5y", 
+    "INVESTMENT_15y","INSTALLED_15y", 
     
     # Installed --> Exports
-    "INSTALLED_5y","EXPORTS_5y",          
+    "INSTALLED_15y","EXPORTS_15y",          
     
     # QC demand lag --> Installed
-    "DEMAND_QC_new_avg_5y_lag_5y","INSTALLED_5y",  
+    "DEMAND_QC_new_avg_15y_lag_15y","INSTALLED_15y",  
     
     # Price lag --> Installed
-    "PRICE_5y_lag_5y","INSTALLED_5y",  
+    "PRICE_15y_lag_15y","INSTALLED_15y",  
     
     # Intertie lag --> Installed
-    "INTERTIE_5y_lag_5y","INSTALLED_5y", 
+    "INTERTIE_15y_lag_15y","INSTALLED_15y", 
     
     # Installed --> Intertie
-  #  "INSTALLED_5y","INTERTIE_5y", 
-    "INSTALLED_5y_lag_5y", "INTERTIE_5y",
+  #  "INSTALLED_15y","INTERTIE_15y", 
+    "INSTALLED_15y_lag_15y", "INTERTIE_15y",
     
     # Investment --> Intertie
-    "INVESTMENT_5y","INTERTIE_5y", 
+    "INVESTMENT_15y","INTERTIE_15y", 
     
     # US demand lag --> Intertie
-    "DEMAND_US_new_avg_5y_lag_5y","INTERTIE_5y",
+    "DEMAND_US_new_avg_15y_lag_15y","INTERTIE_15y",
     
     # Price lag --> Intertie
-    "PRICE_5y_lag_5y","INTERTIE_5y",  
+    "PRICE_15y_lag_15y","INTERTIE_15y",  
     
     # QC demand lag --> Investment
-    "DEMAND_QC_new_avg_5y_lag_5y","INVESTMENT_5y",
+    "DEMAND_QC_new_avg_15y_lag_15y","INVESTMENT_15y",
    
     # QC demand --> Price
-    "DEMAND_QC_5y","PRICE_5y", 
+    "DEMAND_QC_15y","PRICE_15y", 
     
     # Exports lag --> Investment
-    "EXPORTS_new_avg_5y_lag_5y","INVESTMENT_5y",
+    "EXPORTS_new_avg_15y_lag_15y","INVESTMENT_15y",
     
     # Intertie --> Exports
-    "INTERTIE_5y","EXPORTS_5y", 
+    "INTERTIE_15y","EXPORTS_15y", 
     
     # Price --> Exports
-    "PRICE_5y","EXPORTS_5y", 
+    "PRICE_15y","EXPORTS_15y", 
     
     # US demand --> Price
-    "DEMAND_US_5y","PRICE_5y"),
+    "DEMAND_US_15y","PRICE_15y"),
     ncol = 2,byrow=TRUE))
 
 # Column names for the allow list are assigned.
@@ -495,10 +504,10 @@ black.list.expert = NA
 
 # For each pair of variables in the final data-frame, a check is performed.
 # If the pair is not found in the allow list, it is added to the black list.
-for(i in 1:ncol(df.expert.5y)){
-  for(j in 1:ncol(df.expert.5y)){
-    from.test = colnames(df.expert.5y)[i]
-    to.test = colnames(df.expert.5y)[j]
+for(i in 1:ncol(df.expert.15y)){
+  for(j in 1:ncol(df.expert.15y)){
+    from.test = colnames(df.expert.15y)[i]
+    to.test = colnames(df.expert.15y)[j]
     
     if(length(which(allow.list.expert$From==from.test&
                     allow.list.expert$To==to.test))==0){
@@ -516,60 +525,56 @@ black.list.expert = black.list.expert[2:nrow(black.list.expert),]
 
 ## Visualizing the expert DAG
 # A DAG is constructed using expert knowledge.
-dag.expert.5y <- model2network("[INSTALLED_5y_lag_5y][DEMAND_QC_new_avg_5y_lag_5y][PRICE_5y_lag_5y][INTERTIE_5y_lag_5y][DEMAND_US_new_avg_5y_lag_5y][EXPORTS_new_avg_5y_lag_5y][DEMAND_QC_5y][DEMAND_US_5y][INSTALLED_5y|DEMAND_QC_new_avg_5y_lag_5y:INVESTMENT_5y:PRICE_5y_lag_5y:INTERTIE_5y_lag_5y][INTERTIE_5y|INSTALLED_5y_lag_5y:INVESTMENT_5y:DEMAND_US_new_avg_5y_lag_5y:PRICE_5y_lag_5y][INVESTMENT_5y|DEMAND_QC_new_avg_5y_lag_5y:EXPORTS_new_avg_5y_lag_5y][EXPORTS_5y|INTERTIE_5y:INSTALLED_5y:PRICE_5y][PRICE_5y|DEMAND_QC_5y:DEMAND_US_5y]")
+dag.expert.15y <- model2network("[INSTALLED_15y_lag_15y][DEMAND_QC_new_avg_15y_lag_15y][PRICE_15y_lag_15y][INTERTIE_15y_lag_15y][DEMAND_US_new_avg_15y_lag_15y][EXPORTS_new_avg_15y_lag_15y][DEMAND_QC_15y][DEMAND_US_15y][INSTALLED_15y|DEMAND_QC_new_avg_15y_lag_15y:INVESTMENT_15y:PRICE_15y_lag_15y:INTERTIE_15y_lag_15y][INTERTIE_15y|INSTALLED_15y_lag_15y:INVESTMENT_15y:DEMAND_US_new_avg_15y_lag_15y:PRICE_15y_lag_15y][INVESTMENT_15y|DEMAND_QC_new_avg_15y_lag_15y:EXPORTS_new_avg_15y_lag_15y][EXPORTS_15y|INTERTIE_15y:INSTALLED_15y:PRICE_15y][PRICE_15y|DEMAND_QC_15y:DEMAND_US_15y]")
 
 # The constructed DAG is visualized with a specified height.
-plot.network(dag.expert.5y, ht = "600px")
+plot.network(dag.expert.15y, ht = "600px")
 
 ## Creating Score-Based DAGs
 # DAG created using the loglik-cg score function and HC algorithm
-dag.expert.5y.emp <- hc(df.expert.5y, score = "loglik-cg", blacklist = black.list.expert, debug = FALSE)
+dag.expert.15y.emp <- hc(df.expert.15y, score = "loglik-cg", blacklist = black.list.expert, debug = FALSE)
 par(mar=c(1,1,1,1))
 # Fitting the model 
-model.expert.5y.emp = bn.fit(dag.expert.5y.emp, df.expert.5y)
+model.expert.15y.emp = bn.fit(dag.expert.15y.emp, df.expert.15y)
 #Visualizing model's conditional probabilities using the graphviz.chart
-graphviz.chart(model.expert.5y.emp,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
+graphviz.chart(model.expert.15y.emp,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
                strip.bg = "lightskyblue")
 dev.off()
 # Network visualized using plot.network
-plot.network(dag.expert.5y.emp, ht = "600px")
+plot.network(dag.expert.15y.emp, ht = "600px")
 
 # DAG created using the aic-cg score function and HC algorithm
-dag.expert.5y.emp.aic <- hc(df.expert.5y, score = "aic-cg", blacklist = black.list.expert)
-plot.network(dag.expert.5y.emp.aic, ht = "600px")
+dag.expert.15y.emp.aic <- hc(df.expert.15y, score = "aic-cg", blacklist = black.list.expert)
+plot.network(dag.expert.15y.emp.aic, ht = "600px")
 par(mar=c(1,1,1,1))
-model.expert.5y.emp.aic = bn.fit(dag.expert.5y.emp.aic, df.expert.5y)
-graphviz.chart(model.expert.5y.emp.aic,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
+model.expert.15y.emp.aic = bn.fit(dag.expert.15y.emp.aic, df.expert.15y)
+graphviz.chart(model.expert.15y.emp.aic,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
                strip.bg = "lightskyblue")
 dev.off()
 
 # DAG created using the bic-cg score function and HC algorithm
-dag.expert.5y.emp.bic <- hc(df.expert.5y, score = "bic-cg", blacklist = black.list.expert)
-plot.network(dag.expert.5y.emp.bic, ht = "600px")
+dag.expert.15y.emp.bic <- hc(df.expert.15y, score = "bic-cg", blacklist = black.list.expert)
+plot.network(dag.expert.15y.emp.bic, ht = "600px")
 par(mar=c(1,1,1,1))
-model.expert.5y.emp.bic = bn.fit(dag.expert.5y.emp.bic, df.expert.5y)
-graphviz.chart(model.expert.5y.emp.bic,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
+model.expert.15y.emp.bic = bn.fit(dag.expert.15y.emp.bic, df.expert.15y)
+graphviz.chart(model.expert.15y.emp.bic,  type = "barprob", grid = TRUE, bar.col = "darkgreen",
                strip.bg = "lightskyblue")
 dev.off()
 
-# Run the Graph_Generator code to save the conditional dependency graphs automatically
-# Note, you must also set your working directory inside the Graph_Generator.R file and modify it according to your variables
-source("/Users/amirgazar/Documents/GitHub/Hydro EIA Code/R files/Graph_Generator.R") #change the directory as needed
-
 ## rmse, MSE, MAE and Rsquared for each node
 # Loglik model
-df.expert.5y <- df.5y.with.lags.no.NA[, selected.columns]
+df.expert.15y <- df.15y.with.lags.no.NA[, selected.columns]
 
 results_loglik <- list()
-discrete_vars <- c("INTERTIE_5y", "INVESTMENT_5y")
-continuous_vars <- setdiff(colnames(df.expert.5y), c(discrete_vars, grep("_pred$", colnames(df.expert.5y), value = TRUE)))
+discrete_vars <- c("INTERTIE_15y", "INVESTMENT_15y")
+continuous_vars <- setdiff(colnames(df.expert.15y), c(discrete_vars, grep("_pred$", colnames(df.expert.15y), value = TRUE)))
 
-for (var in colnames(df.expert.5y)) {
+for (var in colnames(df.expert.15y)) {
   if (!grepl("_pred$", var)) {
     pred_column <- paste(var, "pred", sep = "_")
-    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp, node = var, data = df.expert.5y, method = "bayes-lw")
-    actual_values <- df.expert.5y[[var]]
-    predicted_values <- df.expert.5y[[pred_column]]
+    df.expert.15y[[pred_column]] <- predict(model.expert.15y.emp, node = var, data = df.expert.15y, method = "bayes-lw")
+    actual_values <- df.expert.15y[[var]]
+    predicted_values <- df.expert.15y[[pred_column]]
     
     if (var %in% continuous_vars) {
       results_loglik[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
@@ -582,12 +587,12 @@ for (var in colnames(df.expert.5y)) {
 # AIC model
 results_AIC <- list()
 
-for (var in colnames(df.expert.5y)) {
+for (var in colnames(df.expert.15y)) {
   if (!grepl("_pred$", var)) {
     pred_column <- paste(var, "pred", sep = "_")
-    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp.aic, node = var, data = df.expert.5y, method = "bayes-lw")
-    actual_values <- df.expert.5y[[var]]
-    predicted_values <- df.expert.5y[[pred_column]]
+    df.expert.15y[[pred_column]] <- predict(model.expert.15y.emp.aic, node = var, data = df.expert.15y, method = "bayes-lw")
+    actual_values <- df.expert.15y[[var]]
+    predicted_values <- df.expert.15y[[pred_column]]
     
     if (var %in% continuous_vars) {
       results_AIC[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
@@ -600,12 +605,12 @@ for (var in colnames(df.expert.5y)) {
 # BIC model
 results_BIC <- list()
 
-for (var in colnames(df.expert.5y)) {
+for (var in colnames(df.expert.15y)) {
   if (!grepl("_pred$", var)) {
     pred_column <- paste(var, "pred", sep = "_")
-    df.expert.5y[[pred_column]] <- predict(model.expert.5y.emp.bic, node = var, data = df.expert.5y, method = "bayes-lw")
-    actual_values <- df.expert.5y[[var]]
-    predicted_values <- df.expert.5y[[pred_column]]
+    df.expert.15y[[pred_column]] <- predict(model.expert.15y.emp.bic, node = var, data = df.expert.15y, method = "bayes-lw")
+    actual_values <- df.expert.15y[[var]]
+    predicted_values <- df.expert.15y[[pred_column]]
     
     if (var %in% continuous_vars) {
       results_BIC[[var]] <- evaluate_fit_continuous(actual_values, predicted_values)
@@ -617,11 +622,11 @@ for (var in colnames(df.expert.5y)) {
 # Using the dsep.dag function to calculate conditional dependency for each pair 
 
 # Defining the node_pairs list to identify nodes of interest where we want to perform d-separation. Note that this list contains node in a "from", "to" format.
-different_edges <- compare(dag.expert.5y.emp, dag.expert.5y, arcs = TRUE)
+different_edges <- compare(dag.expert.15y.emp, dag.expert.15y, arcs = TRUE)
 node_pairs <- different_edges$fp
 print(node_pairs)
 node_pairs <- lapply(seq_len(nrow(node_pairs)), function(i) as.character(node_pairs[i, ]))
 
 # Using the dsep.dag function to calculate conditional dependency for each pair 
-dsep_log <- dsep.dag(dag.expert.5y.emp, df.expert.5y, node_pairs)
+dsep_log <- dsep.dag(dag.expert.15y.emp, df.expert.15y, node_pairs)
 

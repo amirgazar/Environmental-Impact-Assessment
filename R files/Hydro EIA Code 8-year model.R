@@ -27,7 +27,7 @@ invisible(lapply(c("Rgraphviz", "bnlearn", "gRain", "visNetwork", "ggplot2",
 
 
 # Set Working Directory (change for your setup)
-setwd("/Users/amirgazar/Documents/Hydro EIA Code/data")
+setwd("/Users/amirgazar/Documents/GitHub/Hydro EIA Code/data")
 
 # Read the data-set
 hydro.data <- read.csv("hydro_var_aug23.csv")
