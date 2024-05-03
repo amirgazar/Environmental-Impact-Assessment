@@ -1,5 +1,5 @@
 ## MUST RUN THE Hydro_Paper_BNLearn latest version first!!!
-# Do electrical interties stimulate Canadian hydroelectric development? Using causal inference to scope environmental impact assessment in evolving sociotechnical systems
+# Do electrical interties stimulate Canadian hydroelectric development? Using causal inference to identify second-order impacts in evolving sociotechnical systems
 # Amir M. Gazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
 # 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
 # 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
