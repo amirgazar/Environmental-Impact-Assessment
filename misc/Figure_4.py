@@ -1,5 +1,5 @@
-# Transborder electrical interties do not create environmental impacts from development of Canadian hydroelectric resources
-# Amir Mortazavigazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
+# Causal inference to scope environmental impact assessment of renewable energy projects and test competing mental models of decarbonization
+# Amir M. Gazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
 # 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
 # 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
 # 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 27708, USA

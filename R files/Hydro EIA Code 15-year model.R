@@ -1,14 +1,13 @@
-# Do electrical interties stimulate Canadian hydroelectric development? Using causal inference to identify second-order impacts in evolving sociotechnical systems
+# Causal inference to scope environmental impact assessment of renewable energy projects and test competing mental models of decarbonization
 # Amir M. Gazar1,2,*, Mark E. Borsuk3, Ryan S.D. Calder1,2,3,4,5
 # 1 Department of Population Health Sciences, Virginia Tech, Blacksburg, VA, 24061, USA
 # 2 Global Change Center, Virginia Tech, Blacksburg, VA, 24061, USA
-# 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 277015, USA
+# 3 Department of Civil and Environmental Engineering, Duke University, Durham, NC, 27708, USA
 # 4 Faculty of Health Sciences, Virginia Tech, Roanoke, VA, 24016, USA
 # 5 Department of Civil and Environmental Engineering, Virginia Tech, Blacksburg, VA, 24061, USA
 
 # *Contact: amirgazar@vt.edu.   
 # All rights reserved under Creative Commons 4.0
-
 
 # Install Rgraphviz from Bioconductor
 #if (!requireNamespace("BiocManager", quietly = TRUE))
