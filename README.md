@@ -3,7 +3,8 @@
 
 [![Manuscript-doi](https://img.shields.io/badge/Manuscript-10.1088/2634--4505/ad8fce-blue)](https://doi.org/10.1088/2634-4505/ad8fce)
 
- [<img alt="Static Badge" src="https://img.shields.io/badge/manuscript-doi">]([https://creativecommons.org/licenses/by/4.0/](https://doi.org/10.1088/2634-4505/ad8fce)) 
+ [<img alt="Static Badge" src="https://img.shields.io/badge/manuscript_doi">](https://doi.org/10.1088/2634-4505/ad8fce)
+ 
 <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
 
 <div class="topper-featured-image__inner">
